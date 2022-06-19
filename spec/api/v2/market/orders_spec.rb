@@ -20,6 +20,7 @@ describe API::V2::Market::Orders, type: :request do
       create(:order_bid, :btcusd, price: '12'.to_d, volume: '123.12345678', created_at: 1.day.ago, member: member, state: Order::CANCEL)
       create(:order_ask, :btcusd, price: '13'.to_d, volume: '123.12345678', created_at: 2.hours.ago, member: member, state: Order::WAIT, updated_at: Time.now + 10)
       create(:order_ask, :btcusd, price: '14'.to_d, volume: '123.12345678', created_at: 6.hours.ago, member: member, state: Order::DONE)
+      create(:order_ask, :btcusd, price: '13'.to_d, volume: '123.12345678', created_at: 2.hours.ago, member: member, state: Order::TRIGGER_WAIT, updated_at: Time.now + 10)
     end
 
     it 'requires authentication' do
@@ -118,11 +119,11 @@ describe API::V2::Market::Orders, type: :request do
     end
 
     it 'returns orders with state done and wait' do
-      api_get '/api/v2/market/orders', params: { market: 'btcusd', state: [Order::DONE, Order::WAIT] }, token: token
+      api_get '/api/v2/market/orders', params: { market: 'btcusd', state: [Order::DONE, Order::WAIT, Order::TRIGGER_WAIT] }, token: token
       result = JSON.parse(response.body)
 
       expect(response).to be_successful
-      count = member.orders.where(state: [Order::DONE, Order::WAIT], market_id: 'btcusd').count
+      count = member.orders.where(state: [Order::DONE, Order::WAIT, Order::TRIGGER_WAIT], market_id: 'btcusd').count
       expect(result.size).to eq count
     end
 
