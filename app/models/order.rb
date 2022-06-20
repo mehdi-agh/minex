@@ -67,7 +67,7 @@ class Order < ApplicationRecord
 
   PENDING = 'pending'
   WAIT    = 'wait'
-  TRIGGER_WAIT= 'trigger_wait'
+  #TRIGGER_WAIT= 'trigger_wait'
   DONE    = 'done'
   CANCEL  = 'cancel'
   REJECT  = 'reject'
