@@ -47,13 +47,13 @@ module API
                                 api_version: API_VERSION,
                                 doc_version: Peatio::Application::VERSION,
                                 info: {
-                                  title:         "Peatio User API #{API_VERSION}",
-                                  description:   'API for Peatio application.',
-                                  contact_name:  'openware.com',
-                                  contact_email: 'hello@openware.com',
-                                  contact_url:   'https://www.openware.com',
+                                  title:         "mSamex User API #{API_VERSION}",
+                                  description:   'API for mSamex application.',
+                                  contact_name:  'xe.msamex.com',
+                                  contact_email: 'info@msamex.com',
+                                  contact_url:   'https://www.msamex.com',
                                   licence:       'MIT',
-                                  license_url:   'https://github.com/openware/peatio/blob/master/LICENSE.md'
+                                  license_url:   ''
                                 },
                                 models: [
                                   API::V2::Entities::Currency,
