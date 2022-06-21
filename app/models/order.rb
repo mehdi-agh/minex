@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   InsufficientMarketLiquidity = Class.new(StandardError)
 
   extend Enumerize
-  STATES = { pending: 0, wait: 100, done: 200, cancel: -100, reject: -200, trigger_wait: 300 }.freeze
+  STATES = { pending: 0, wait: 100, done: 200, cancel: -100, reject: -200, trigger_wait: -300 }.freeze
   enumerize :state, in: STATES, scope: true
 
   TYPES = %w[market limit].freeze
@@ -67,10 +67,11 @@ class Order < ApplicationRecord
 
   PENDING = 'pending'
   WAIT    = 'wait'
-  #TRIGGER_WAIT= 'trigger_wait'
   DONE    = 'done'
   CANCEL  = 'cancel'
   REJECT  = 'reject'
+  TRIGGER_WAIT= 'trigger_wait'
+
 
   scope :done, -> { with_state(:done) }
   scope :active, -> { with_state(:wait) }
