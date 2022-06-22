@@ -3,8 +3,8 @@ GIT
   revision: 167283b25c34ba8a61ce2ad505f68dced3189f43
   specs:
     vault-rails (0.6.0)
-      rails (>= 4.1)
-      vault (~> 0.14)
+      rails (>= 5.2.4.5)
+      vault (~> 0.17)
       
 GEM
   remote: https://rubygems.org/
