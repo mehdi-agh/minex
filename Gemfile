@@ -51,7 +51,7 @@ gem 'irix', '~> 2.6.0'
 gem 'rack-cors', '~> 1.0.6', require: false
 gem 'jwt-rack', '~> 0.1.0', require: false
 gem 'env-tweaks', '~> 1.0.0'
-gem 'vault', '~> 0.17', require: false
+gem 'vault', '~> 0.16.0', require: false
 gem 'vault-rails', git: 'http://github.com/rubykube/vault-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'net-http-persistent', '~> 3.0.1'
